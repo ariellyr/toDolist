@@ -7,7 +7,7 @@ const titulo = document.getElementById('titulo');
 
 let nome = prompt("Qual o seu nome?")
 tarefa.focus();
-titulo.innerHTML = Lista de tarefa: ${nome};
+titulo.innerHTML = `Lista de tarefa: ${nome}`;
 
 btnAdd.addEventListener("click",criaTarefa);
 
