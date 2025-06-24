@@ -1,73 +1,61 @@
-//Definir variaveis consteantes para uso no codigo 
-const btnadd = document.getElementById('btn-add'); 
-const tarefa = document.getElementById('tarefa'); 
-const taskList= document.getElementById('taskList'); 
+// definir variaveis ou constantes para uso do codigo
+
+const btnAdd = document.getElementById(btn-add);
+const tarefa = document.getElementById('tarefa');
+const taskList = document.getElementById('taskList');
 const titulo = document.getElementById('titulo');
 
-
-let nome = prompt("qual seu nome? ")
+let nome = prompt("Qual o seu nome?")
 tarefa.focus();
-titulo.innerHTML = `Lista de tarefas: ${nome}`;
+titulo.innerHTML = Lista de tarefa: ${nome};
 
-//acompanha o evento de click do botão adicionar uma tarefa
-btnadd.addEventListener("click",criatarefa);
+btnAdd.addEventListener("click",criaTarefa);
 
+//Envio com o Enter
 tarefa.addEventListener('keypress', function(e){
-    if(e.key ==='Enter') criatarefa();
-})
+    if (e.key === 'Enter') criaTarefa();
+});
+//
 
-function criatarefa(){
-  if(tarefa.value==""){
-    alert("digite o nome da sua tarefa")
-  } 
-  else{
+function criaTarefa(){
+    if(tarefa.value==""){
+        alert("digite o nome da sua tarefa")
+    } else{
+
+    
     const listItem = document.createElement('li')
     listItem.textContent = tarefa.value;
-    taskList.appendChild(l)
-  
-  
-  
-    const listItem = document.createElement('li');
-    listItem.textContent = tarefa.value; 
     taskList.appendChild(listItem);
-    
-    //botão deletar tarefa
-    const removebutton = document.createElement('button');
-    removebutton.id ="remove";
-    removebutton.textContent = "X";
 
 
-
-    removebutton.addEventListener("click", function(){
+    const removeButton = document.createElement('button');
+    removeButton.id = "remove";
+    removeButton.textContent = "X"
+   
+    removeButton.addEventListener('click', function(){
         taskList.removeChild(listItem);
     })
 
-    //botão concluir tarefa
-    const concluirbutton = document.createElement('button');
-    concluirbutton.id = "conclui";
-    concluirbutton.textContent = "✓";
-
-        concluirbutton.addEventListener("click", function(){ 
-        listItem.classList.toggle('completed');
-    } )
+    const concluirButton = document.createElement('button');
+    concluirButton.id = "conclui";
+    concluirButton.textContent = "✓";
 
     let buttonsItem = document.createElement('div');
-    buttonsItem.classList.toggle('buttonitem');
+    buttonsItem.classList.toggle('buttonsItem')
     listItem.appendChild(buttonsItem);
-    buttonsItem.appendChild(concluirbutton);
-    buttonsItem.appendChild(removebutton);
+    buttonsItem.appendChild(concluirButton);
+    buttonsItem.appendChild(removeButton)
 
-    concluirbutton.addEventListener('click',function(){
+    
+    concluirButton.addEventListener('click',function(){
         listItem.classList.toggle('completed');
-
     })
 
-    //apaga input apos envio 
+    //Apaga input apos envio
     tarefa.value = '';
-    tarefa.focus(); //retorna para o ponto de entrada 
-  }
+    tarefa.focus(); //retorma o foco para o campo de entrada
+
+        }
+
 }
-
- 
-
 
